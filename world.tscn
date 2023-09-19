@@ -1,0 +1,66 @@
+[gd_scene load_steps=15 format=3 uid="uid://dwpgvdkyxhd0t"]
+
+[ext_resource type="Texture2D" uid="uid://b7x03n6ysf4b2" path="res://assets/PNG/Tiles/Terrain/Grass/grass_06.png" id="1_o6v77"]
+[ext_resource type="Texture2D" uid="uid://bc7ily6ic4qa" path="res://assets/PNG/Tiles/Terrain/Grass/grass_14.png" id="2_pjwhg"]
+[ext_resource type="Texture2D" uid="uid://dpph6a2ps4e3d" path="res://assets/PNG/Tiles/Terrain/Sand/sand_12.png" id="3_o43dg"]
+[ext_resource type="Texture2D" uid="uid://bbfw5sv0v2lyo" path="res://assets/PNG/Tiles/Terrain/Stone/water_01.png" id="4_786g2"]
+[ext_resource type="Texture2D" uid="uid://c257pmlmnw8cl" path="res://assets/PNG/Tiles/Terrain/Dirt/dirt_06.png" id="5_kivdp"]
+[ext_resource type="Script" path="res://Player1.gd" id="6_4btoc"]
+[ext_resource type="Texture2D" uid="uid://c0q0hhcb2ud8c" path="res://assets/Tiles/alienBeige.png" id="6_15xij"]
+[ext_resource type="Texture2D" uid="uid://d17d87d4qvk4i" path="res://assets/PNG/Tiles/Terrain/Stone/selector_01.png" id="6_348g8"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2sd7c"]
+texture = ExtResource("1_o6v77")
+texture_region_size = Vector2i(120, 140)
+0:0/0 = 0
+0:0/0/custom_data_0 = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dnvhp"]
+texture = ExtResource("2_pjwhg")
+texture_region_size = Vector2i(120, 140)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f2u8x"]
+texture = ExtResource("3_o43dg")
+texture_region_size = Vector2i(120, 140)
+0:0/0 = 0
+0:0/0/custom_data_0 = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2etm1"]
+texture = ExtResource("4_786g2")
+texture_region_size = Vector2i(120, 140)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2dtqa"]
+texture = ExtResource("5_kivdp")
+texture_region_size = Vector2i(120, 140)
+0:0/0 = 0
+0:0/0/custom_data_0 = true
+
+[sub_resource type="TileSet" id="TileSet_ndqsu"]
+tile_shape = 3
+tile_size = Vector2i(120, 140)
+custom_data_layer_0/name = "walkable"
+custom_data_layer_0/type = 1
+sources/0 = SubResource("TileSetAtlasSource_2sd7c")
+sources/1 = SubResource("TileSetAtlasSource_dnvhp")
+sources/2 = SubResource("TileSetAtlasSource_f2u8x")
+sources/3 = SubResource("TileSetAtlasSource_2etm1")
+sources/4 = SubResource("TileSetAtlasSource_2dtqa")
+
+[node name="World" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_ndqsu")
+format = 2
+layer_0/tile_data = PackedInt32Array(262144, 3, 0, 196608, 3, 0, 131073, 3, 0, 65537, 3, 0, 2, 3, 0, 3, 3, 0, 4, 3, 0, 5, 3, 0, 6, 3, 0, 65542, 3, 0, 131079, 3, 0, 196615, 3, 0, 262152, 3, 0, 327680, 3, 0, 393217, 3, 0, 458753, 3, 0, 524290, 3, 0, 524291, 3, 0, 524292, 3, 0, 524293, 3, 0, 524294, 3, 0, 327687, 3, 0, 393223, 3, 0, 458758, 3, 0, 65538, 0, 0, 131075, 0, 0, 131074, 0, 0, 196610, 0, 0, 196609, 0, 0, 262146, 0, 0, 262145, 0, 0, 327681, 0, 0, 327682, 0, 0, 393218, 0, 0, 393219, 0, 0, 458755, 0, 0, 458754, 0, 0, 458756, 0, 0, 458757, 0, 0, 393222, 0, 0, 327686, 0, 0, 262151, 0, 0, 196614, 0, 0, 131078, 0, 0, 131077, 0, 0, 65541, 0, 0, 65540, 0, 0, 65539, 0, 0, 131076, 0, 0, 196612, 0, 0, 196611, 0, 0, 262147, 0, 0, 262149, 0, 0, 327684, 0, 0, 196613, 0, 0, 262150, 0, 0, 327685, 0, 0, 393221, 0, 0, 393220, 0, 0, 262148, 0, 0, 327683, 0, 0)
+
+[node name="Player1" type="Sprite2D" parent="."]
+position = Vector2(360, 176)
+texture = ExtResource("6_348g8")
+script = ExtResource("6_4btoc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player1"]
+position = Vector2(3.05176e-05, 1.52588e-05)
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("6_15xij")
